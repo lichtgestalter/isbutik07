@@ -1,0 +1,71 @@
+﻿<Window x:Class="Isbutik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Isbutik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid Margin="10">
+        <ComboBox x:Name="ComboIcecremes" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="ComboIcecremes_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name}"/>
+                        <TextBlock Text=" (kr. "/>
+                        <TextBlock Text="{Binding Path=Price}"/>
+                        <TextBlock Text=")"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock x:Name="IceCremeDescription" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="158" Background="#FFD2D2D2"><Run Text="{Binding Path=.}"/></TextBlock>
+        <TextBox x:Name="tbAntal" HorizontalAlignment="Left" Margin="90,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"/>
+        <Button x:Name="AddOrderLine"  Content="Tilføj -&gt;" HorizontalAlignment="Left" Margin="70,140,0,0" VerticalAlignment="Top" Width="70" Click="AddOrderLine_Click"/>
+        <Button x:Name="RemoveOrderLine"  Content="&lt;- Fjern" HorizontalAlignment="Left" Margin="70,170,0,0" VerticalAlignment="Top" Width="70" Click="RemoveOrderLine_Click"/>
+        <Button x:Name="btBestil"  Content="Bestil" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="130" Click="BtBestil_Click"/>
+        <Label Content="Vælg is" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vælg antal:" HorizontalAlignment="Left" Margin="15,105,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bestillingsseddel" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgBestillinger" HorizontalAlignment="Left" Height="180" Margin="190,40,0,0" VerticalAlignment="Top" Width="430" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Binding="{Binding Path=Vare.Name}"
+                    Header="Navn"
+                    MinWidth="50" 
+                    IsReadOnly="True" />
+                <DataGridTextColumn 
+                    Binding="{Binding Path=Quantity}"
+                    Header="Antal"
+                    MinWidth="40" 
+                    IsReadOnly="True" />
+                <DataGridTextColumn 
+                    Binding="{Binding Path=Vare.Price}"
+                    Header="Pris"
+                    MinWidth="40" 
+                    IsReadOnly="True" />
+                <DataGridTextColumn 
+                    Binding="{Binding Path=Sum}"
+                    Header="Beløb"
+                    MinWidth="50" 
+                    IsReadOnly="True" />
+                <DataGridTextColumn 
+                    Binding="{Binding Path=Vare.Description}"
+                    Header="Beskrivelse"
+                    MinWidth="50" 
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label HorizontalAlignment="Left" Margin="5,250,0,0" Height="90" Width="500" VerticalAlignment="Top" Background="#FFD5EBFF"/>
+        <Label Content="Id" HorizontalAlignment="Left" Margin="15,280,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbVareId" HorizontalAlignment="Left" Margin="15,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.564,0.681"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="90,280,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbVareName" HorizontalAlignment="Left" Margin="90,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.564,0.681"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="255,280,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbVarePrice" HorizontalAlignment="Left" Margin="255,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.564,0.681"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="320,280,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbVareDescription" HorizontalAlignment="Left" Margin="320,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.564,0.681"/>
+        <Button x:Name="RedigerVare"  Content="Rediger Vare" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="70" Click="RedigerVare_Click"/>
+        <Button x:Name="GemVare"  Content="Gem Vare" HorizontalAlignment="Left" Margin="420,260,0,0" VerticalAlignment="Top" Width="70" Click="GemVare_Click"/>
+    </Grid>
+</Window>
