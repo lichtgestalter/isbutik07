@@ -27,7 +27,7 @@ namespace Isbutik
         
         public MainWindow()  // Constructor
         {
-            //Debug.WriteLine("Hello World"); git4
+            //Debug.WriteLine("Hello World"); git5
             DataContext = this;  // MainWindow bliver udgangspunkt for alle sammenbindinger mellem Gui-komponenter. Her unødvendig?
             func.TestDatabase(bestillingsListe, vareListe);
             //func.ReadVarer(vareListe);  // Hent varer fra databasen.
