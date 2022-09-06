@@ -13,6 +13,11 @@ namespace Isbutik
         {
             data.TestDatabase(bestillingsListe, vareListe);
         }
+        
+        public static void TestTest()  // Eksempel for en static method. Kaldes med klassenavnen i stedet for objektnavn.
+        {
+            ;
+        }
         public void ReadVarer(List<Vare> vareListe)  // Method. Henter alle varer fra databasen.
         {
             data.ReadVarer(vareListe);
